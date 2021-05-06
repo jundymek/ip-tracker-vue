@@ -26,7 +26,6 @@ import { defineComponent, ref } from "@vue/runtime-core";
 export default defineComponent({
   setup() {
     const input = ref("");
-
     return { input };
   },
 });
