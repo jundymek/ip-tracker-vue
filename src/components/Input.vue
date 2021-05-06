@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <h1 class="title">IP adress tracker</h1>
-    <form action="" class="form">
+    <form action="" class="form" @submit.prevent="handleSubmit">
       <div class="input-wrapper">
         <input
           type="text"
@@ -21,12 +21,23 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "@vue/runtime-core";
+import { defineComponent, onMounted, ref } from "@vue/runtime-core";
+import { useGetLocation } from "@/composables/useGetLocation";
 
 export default defineComponent({
   setup() {
     const input = ref("");
-    return { input };
+    const { getLocationData, locationData, error } = useGetLocation();
+    const handleSubmit = async () => {
+      await getLocationData(input.value);
+      console.log(locationData.value);
+      console.log(error.value);
+    };
+    onMounted(async () => {
+      await getLocationData();
+      console.log(locationData);
+    });
+    return { input, handleSubmit };
   },
 });
 </script>
