@@ -1,11 +1,14 @@
-<template>start</template>
+<template>
+  <Input />
+</template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import Input from "@/components/Input.vue";
 
 export default defineComponent({
   name: "App",
-  components: {},
+  components: { Input },
 });
 </script>
 
@@ -19,5 +22,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: url("../src/assets/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 </style>
