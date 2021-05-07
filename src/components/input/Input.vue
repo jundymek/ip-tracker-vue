@@ -10,6 +10,7 @@
           id="ipInput"
           placeholder="Search for any IP address or domain"
           class="input"
+          required
         />
         <button class="button">
           <img src="@/assets/icon-arrow.svg" alt="Arrow" />
@@ -34,7 +35,7 @@ export default defineComponent({
       console.log(error.value);
     };
     onMounted(async () => {
-      await getLocationData();
+      // await getLocationData();
       console.log(locationData);
     });
     return { input, handleSubmit };
@@ -45,10 +46,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .wrapper {
   width: 100vw;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url("../../assets/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .title {
   color: #fff;

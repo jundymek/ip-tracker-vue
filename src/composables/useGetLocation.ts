@@ -14,9 +14,7 @@ export const useGetLocation = (): {
     isLoading.value = true;
     try {
       const response = await fetch(
-        `https://geo.ipify.org/api/v1?apiKey=${
-          process.env.VUE_APP_API_KEY
-        }${checkInput(value)}`
+        `http://ip-api.com/json/${value}?fields=status,message,country,countryCode,regionName,city,lat,lon,timezone,offset,isp,query`
       );
       const data = await response.json();
       locationData.value = data;
