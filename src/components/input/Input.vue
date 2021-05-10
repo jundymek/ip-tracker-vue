@@ -21,10 +21,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
 import { useGetLocation } from "@/composables/useGetLocation";
-import { useStore } from "vuex";
+import { useStore } from "@/store/store";
 
 export default defineComponent({
   setup() {

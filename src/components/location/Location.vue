@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div v-if="state.location" class="wrapper">
     <div class="box">
       <h2 class="title">Ip adress</h2>
       <p class="value">{{ state.location.query }}</p>
@@ -22,7 +22,7 @@
 <script lang="ts">
 import { useGetLocation } from "@/composables/useGetLocation";
 import { defineComponent, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store/store";
 
 export default defineComponent({
   setup() {

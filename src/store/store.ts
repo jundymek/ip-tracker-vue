@@ -1,12 +1,21 @@
-import { createStore } from "vuex";
+import { LocationObject } from "@/types/Location";
+import { InjectionKey } from "vue";
+import { createStore, useStore as baseUseStore, Store } from "vuex";
 
-export default createStore({
+export interface State {
+  isLoading: boolean;
+  location: LocationObject | undefined;
+}
+
+export const key: InjectionKey<Store<State>> = Symbol();
+
+export const store = createStore<State>({
   state: {
     isLoading: false,
-    location: {},
+    location: undefined,
   },
   mutations: {
-    SET_ISLOADING(state, status) {
+    SET_ISLOADING(state: { isLoading: boolean }, status: boolean) {
       state.isLoading = status;
     },
     SET_LOCATION(state, newLocation) {
@@ -35,3 +44,7 @@ export default createStore({
   },
   modules: {},
 });
+
+export function useStore(): Store<State> {
+  return baseUseStore(key);
+}
