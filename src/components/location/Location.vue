@@ -48,6 +48,8 @@ export default defineComponent({
   margin-top: -50px;
   overflow: hidden;
   border-radius: 10px;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .box {

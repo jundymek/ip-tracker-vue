@@ -1,13 +1,14 @@
+import { LocationObject } from "@/types/Location";
 import { Ref, ref } from "vue";
 
-const locationData = ref(null);
+const locationData = ref<LocationObject | null>(null);
 const error = ref("");
 const isLoading = ref(false);
 
 export const useGetLocation = (): {
   error: Ref<string>;
   getLocationData: (value: string) => Promise<void>;
-  locationData: Ref<null>;
+  locationData: Ref<LocationObject | null>;
   isLoading: Ref<boolean>;
 } => {
   const getLocationData = async (value: string) => {

@@ -1,16 +1,18 @@
 <template>
   <Input />
   <Location />
+  <Map />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Input from "@/components/input/Input.vue";
 import Location from "@/components/location/Location.vue";
+import Map from "./components/map/Map.vue";
 
 export default defineComponent({
   name: "App",
-  components: { Input, Location },
+  components: { Input, Location, Map },
 });
 </script>
 
@@ -33,6 +35,6 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: 1440px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 </style>
