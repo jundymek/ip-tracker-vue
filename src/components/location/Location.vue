@@ -2,11 +2,11 @@
   <div class="wrapper">
     <div class="box">
       <h2 class="title">Ip adress</h2>
-      <p class="value">192.212.174.191</p>
+      <p class="value">{{ state.location.query }}</p>
     </div>
     <div class="box">
       <h2 class="title">Location</h2>
-      <p class="value">Brooklyn, NY 10001</p>
+      <p class="value">{{ state.location.country }}</p>
     </div>
     <div class="box">
       <h2 class="title">Timezone</h2>
@@ -14,17 +14,27 @@
     </div>
     <div class="box">
       <h2 class="title">ISP</h2>
-      <p class="value">SpaceX Starlink</p>
+      <p class="value">{{ state.location.isp }}</p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useGetLocation } from "@/composables/useGetLocation";
+import { defineComponent, onMounted } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
-  setup(props) {
-    console.log(props);
+  setup() {
+    const { getLocationData, locationData } = useGetLocation();
+    const store = useStore();
+    const { state } = store;
+
+    onMounted(async () => {
+      await getLocationData("");
+      store.commit("SET_LOCATION", locationData.value);
+    });
+    return { state };
   },
 });
 </script>

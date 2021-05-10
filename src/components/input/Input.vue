@@ -16,29 +16,29 @@
           <img src="@/assets/icon-arrow.svg" alt="Arrow" />
         </button>
       </div>
+      <p v-if="error" class="error">*{{ error }}</p>
     </form>
-    {{ input }}
   </div>
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from "@vue/runtime-core";
+import { defineComponent, ref } from "@vue/runtime-core";
 import { useGetLocation } from "@/composables/useGetLocation";
+import { useStore } from "vuex";
 
 export default defineComponent({
   setup() {
+    const store = useStore();
     const input = ref("");
     const { getLocationData, locationData, error } = useGetLocation();
     const handleSubmit = async () => {
       await getLocationData(input.value);
-      console.log(locationData.value);
+      if (!error) {
+        store.commit("SET_LOCATION", locationData.value);
+      }
       console.log(error.value);
     };
-    onMounted(async () => {
-      // await getLocationData();
-      console.log(locationData);
-    });
-    return { input, handleSubmit };
+    return { input, handleSubmit, error };
   },
 });
 </script>
@@ -105,5 +105,10 @@ export default defineComponent({
   border-bottom-right-radius: 14px;
   background: #000;
   cursor: pointer;
+}
+
+.error {
+  color: red;
+  text-align: center;
 }
 </style>
