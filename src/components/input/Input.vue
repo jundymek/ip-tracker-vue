@@ -24,19 +24,13 @@
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
 import { useGetLocation } from "@/composables/useGetLocation";
-import { useStore } from "@/store/store";
 
 export default defineComponent({
   setup() {
-    const store = useStore();
     const input = ref("");
-    const { getLocationData, locationData, error } = useGetLocation();
+    const { getLocationData, error } = useGetLocation();
     const handleSubmit = async () => {
       await getLocationData(input.value);
-      if (!error) {
-        store.commit("SET_LOCATION", locationData.value);
-      }
-      console.log(error.value);
     };
     return { input, handleSubmit, error };
   },

@@ -1,15 +1,15 @@
 import { Ref, ref } from "vue";
 
+const locationData = ref(null);
+const error = ref("");
+const isLoading = ref(false);
+
 export const useGetLocation = (): {
   error: Ref<string>;
   getLocationData: (value: string) => Promise<void>;
   locationData: Ref<null>;
   isLoading: Ref<boolean>;
 } => {
-  const locationData = ref(null);
-  const error = ref("");
-  const isLoading = ref(false);
-
   const getLocationData = async (value: string) => {
     isLoading.value = true;
     try {
@@ -30,5 +30,6 @@ export const useGetLocation = (): {
       console.log(err.message);
     }
   };
+
   return { error, getLocationData, locationData, isLoading };
 };

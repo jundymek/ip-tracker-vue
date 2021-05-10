@@ -1,12 +1,12 @@
 <template>
-  <div v-if="state.location" class="wrapper">
+  <div v-if="locationData" class="wrapper">
     <div class="box">
       <h2 class="title">Ip adress</h2>
-      <p class="value">{{ state.location.query }}</p>
+      <p class="value">{{ locationData.query }}</p>
     </div>
     <div class="box">
       <h2 class="title">Location</h2>
-      <p class="value">{{ state.location.country }}</p>
+      <p class="value">{{ locationData.country }}</p>
     </div>
     <div class="box">
       <h2 class="title">Timezone</h2>
@@ -14,7 +14,7 @@
     </div>
     <div class="box">
       <h2 class="title">ISP</h2>
-      <p class="value">{{ state.location.isp }}</p>
+      <p class="value">{{ locationData.isp }}</p>
     </div>
   </div>
 </template>
@@ -22,19 +22,16 @@
 <script lang="ts">
 import { useGetLocation } from "@/composables/useGetLocation";
 import { defineComponent, onMounted } from "vue";
-import { useStore } from "@/store/store";
 
 export default defineComponent({
   setup() {
     const { getLocationData, locationData } = useGetLocation();
-    const store = useStore();
-    const { state } = store;
 
     onMounted(async () => {
       await getLocationData("");
-      store.commit("SET_LOCATION", locationData.value);
     });
-    return { state };
+
+    return { locationData };
   },
 });
 </script>
