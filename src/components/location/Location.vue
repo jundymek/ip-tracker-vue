@@ -10,7 +10,7 @@
     </div>
     <div class="box">
       <h2 class="title">Timezone</h2>
-      <p class="value">UTC -05:00</p>
+      <p class="value">UTC {{ timezone }}</p>
     </div>
     <div class="box">
       <h2 class="title">ISP</h2>
@@ -21,17 +21,27 @@
 
 <script lang="ts">
 import { useGetLocation } from "@/composables/useGetLocation";
-import { defineComponent, onMounted } from "vue";
+import { computed, defineComponent, onMounted } from "vue";
 
 export default defineComponent({
   setup() {
     const { getLocationData, locationData } = useGetLocation();
 
+    const timezone = computed(() => {
+      if (locationData.value) {
+        const start = locationData.value.offset > 0 ? "+" : "-";
+        return `${start}${(locationData.value.offset / 3600)
+          .toString()
+          .padStart(2, "0")}:00`;
+      }
+      return null;
+    });
+
     onMounted(async () => {
       await getLocationData("");
     });
 
-    return { locationData };
+    return { locationData, timezone };
   },
 });
 </script>
