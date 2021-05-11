@@ -1,18 +1,19 @@
 <template>
-  <Input />
-  <Location />
-  <Map />
+  <div class="box-wrapper">
+    <Input />
+    <Map />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Input from "@/components/input/Input.vue";
-import Location from "@/components/location/Location.vue";
+
 import Map from "./components/map/Map.vue";
 
 export default defineComponent({
   name: "App",
-  components: { Input, Location, Map },
+  components: { Input, Map },
 });
 </script>
 
@@ -27,14 +28,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background: url("../src/assets/pattern-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover; */
   background: $darkGray;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 1440px;
-  /* margin: 0 auto; */
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.box-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }
 </style>

@@ -43,7 +43,6 @@ export default defineComponent({
   height: 30vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: url("../../assets/pattern-bg.png");
   background-repeat: no-repeat;

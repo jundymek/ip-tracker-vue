@@ -45,11 +45,12 @@ export default defineComponent({
   width: 80%;
   height: 170px;
   margin: 0 auto;
-  margin-top: -50px;
-  overflow: hidden;
+  margin-top: -75px;
   border-radius: 10px;
-  z-index: 1;
-  overflow: hidden;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
 }
 
 .box {
