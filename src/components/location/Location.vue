@@ -29,7 +29,7 @@ export default defineComponent({
 
     const timezone = computed(() => {
       if (locationData.value) {
-        const start = locationData.value.offset > 0 ? "+" : "-";
+        const start = locationData.value.offset > 0 ? "+" : "";
         return `${start}${(locationData.value.offset / 3600)
           .toString()
           .padStart(2, "0")}:00`;
@@ -53,6 +53,7 @@ export default defineComponent({
   padding: 0px 20px;
   background: #fff;
   width: 80%;
+  max-width: 1200px;
   height: 170px;
   margin: 0 auto;
   border-radius: 10px;
