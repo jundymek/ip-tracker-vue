@@ -47,42 +47,52 @@ export default defineComponent({
   background: url("../../assets/pattern-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  @media (max-width: $desktop) {
+    height: 66vh;
+  }
 }
 .title {
   color: #fff;
   font-weight: 500;
   text-transform: capitalize;
   text-align: center;
+  margin: 34px 0;
+  @media (max-width: $desktop) {
+    font-size: 26px;
+  }
 }
 
 .form {
   width: 80%;
-  max-width: 590px;
+  max-width: 554px;
   position: relative;
+  @media (max-width: $desktop) {
+    width: 90%;
+  }
 }
 
 .input-wrapper {
   width: 100%;
   display: flex;
-  height: 60px;
+  height: 58px;
 }
 
 .input {
   width: 80%;
-  height: 60px;
+  height: 58px;
   padding: 0 20px;
   background: #fff;
   border: none;
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
   font-weight: 500;
-  color: $darkGray;
+  color: $veryDarkGray;
   font-size: 18px;
   flex: 4;
 
   &::placeholder {
     font-size: 18px;
-    padding: 0 20px;
+    padding: 0 10px;
     font-weight: 500;
     color: $darkGray;
   }
@@ -96,12 +106,21 @@ export default defineComponent({
   height: 100%;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
-  background: #000;
+  background: $black;
   cursor: pointer;
+  transition: 0.2s background-color ease-in;
+  &:hover {
+    background: $veryDarkGray;
+  }
 }
 
 .error {
   color: red;
   text-align: center;
+  margin: 6px 0;
+  @media (max-width: $desktop) {
+    margin: 4px 0;
+    font-size: 14px;
+  }
 }
 </style>

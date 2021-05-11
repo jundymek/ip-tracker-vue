@@ -45,12 +45,18 @@ export default defineComponent({
   width: 80%;
   height: 170px;
   margin: 0 auto;
-  margin-top: -75px;
   border-radius: 10px;
   z-index: 2;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   position: absolute;
+  @media (max-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    width: 90%;
+  }
 }
 
 .box {
@@ -59,6 +65,13 @@ export default defineComponent({
   overflow-wrap: break-word;
   padding: 40px 40px;
   position: relative;
+  @media (max-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
   &:not(:last-child):after {
     position: absolute;
     content: "";
@@ -68,6 +81,9 @@ export default defineComponent({
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+    @media (max-width: $desktop) {
+      display: none;
+    }
   }
 
   & .title {
@@ -75,11 +91,17 @@ export default defineComponent({
     letter-spacing: 2px;
     font-size: 12px;
     text-transform: uppercase;
+    @media (max-width: $desktop) {
+      font-size: 10px;
+    }
   }
   & .value {
     margin: 0;
     font-size: 28px;
     font-weight: 500;
+    @media (max-width: $desktop) {
+      font-size: 18px;
+    }
   }
 }
 </style>
