@@ -6,7 +6,10 @@
         v-model="zoom"
         v-model:zoom="zoom"
         :center="[locationData.lat, locationData.lon]"
+        :options="{ zoomControl: false }"
       >
+        >
+        <l-control-zoom position="bottomleft"></l-control-zoom>
         <l-tile-layer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         ></l-tile-layer>
@@ -24,13 +27,19 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { LMap, LTileLayer, LMarker, LTooltip } from "@vue-leaflet/vue-leaflet";
+import {
+  LMap,
+  LTileLayer,
+  LMarker,
+  LTooltip,
+  LControlZoom,
+} from "@vue-leaflet/vue-leaflet";
 import Location from "@/components/location/Location.vue";
 import "leaflet/dist/leaflet.css";
 import { useGetLocation } from "@/composables/useGetLocation";
 
 export default defineComponent({
-  components: { LMap, LTileLayer, LMarker, LTooltip, Location },
+  components: { LMap, LTileLayer, LMarker, LTooltip, Location, LControlZoom },
   setup() {
     const { locationData } = useGetLocation();
     const zoom = 12;
@@ -48,7 +57,6 @@ export default defineComponent({
 .map {
   width: 100%;
   height: 100%;
-  /* min-height: 100vh; */
   position: relative;
   z-index: 1;
 }
