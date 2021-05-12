@@ -23,11 +23,11 @@ export const store = createStore<State>({
     },
   },
   actions: {
-    getData(context, value) {
+    getLocationIngo(context, value) {
       try {
         context.commit("SET_ISLOADING", true);
         fetch(
-          `http://ip-api.com/json/${value}?fields=status,message,country,countryCode,regionName,city,lat,lon,timezone,offset,isp,query`
+          `http://ip-api.com/json/${value}?fields=status,message,country,countryCode,regionName,city,lat,lon,getUTCTimeDifference,offset,isp,query`
         )
           .then((data) => data.json())
           .then((res) => {

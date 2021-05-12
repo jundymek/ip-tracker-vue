@@ -6,7 +6,7 @@ export interface LocationObject {
   city: string;
   lat: number;
   lon: number;
-  timezone: string;
+  getUTCTimeDifference: string;
   offset: number;
   isp: string;
   query: string;

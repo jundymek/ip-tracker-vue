@@ -1,10 +1,10 @@
 <template>
   <div class="location-wrapper">
     <Location />
-    <div v-if="locationData !== null" class="map">
+    <div v-if="locationInfo !== null" class="map">
       <l-map
         :zoom="zoom"
-        :center="[locationData.lat, locationData.lon]"
+        :center="[locationInfo.lat, locationInfo.lon]"
         :options="{ zoomControl: false }"
       >
         >
@@ -13,7 +13,7 @@
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         ></l-tile-layer>
         <l-marker
-          :lat-lng="[locationData.lat, locationData.lon]"
+          :lat-lng="[locationInfo.lat, locationInfo.lon]"
           draggable
           @moveend="log('moveend')"
         >
@@ -41,10 +41,10 @@ import MarkerIcon from "@/assets/icon-location.svg";
 export default defineComponent({
   components: { LMap, LTileLayer, LMarker, LIcon, Location, LControlZoom },
   setup() {
-    const { locationData } = useGetLocation();
+    const { locationInfo } = useGetLocation();
     const zoom = 12;
     const MarkerIconSize = [46, 56];
-    return { locationData, zoom, MarkerIcon, MarkerIconSize };
+    return { locationInfo, zoom, MarkerIcon, MarkerIconSize };
   },
 });
 </script>

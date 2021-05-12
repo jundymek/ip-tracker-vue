@@ -1,20 +1,20 @@
 <template>
-  <div v-if="locationData" class="wrapper">
+  <div v-if="locationInfo" class="wrapper">
     <div class="box">
       <h2 class="title">Ip adress</h2>
-      <p class="value">{{ locationData.query }}</p>
+      <p class="value">{{ locationInfo.query }}</p>
     </div>
     <div class="box">
       <h2 class="title">Location</h2>
-      <p class="value">{{ locationData.country }}</p>
+      <p class="value">{{ locationInfo.country }}</p>
     </div>
     <div class="box">
-      <h2 class="title">Timezone</h2>
-      <p class="value">UTC {{ timezone }}</p>
+      <h2 class="title">getUTCTimeDifference</h2>
+      <p class="value">UTC {{ getUTCTimeDifference }}</p>
     </div>
     <div class="box">
       <h2 class="title">ISP</h2>
-      <p class="value">{{ locationData.isp }}</p>
+      <p class="value">{{ locationInfo.isp }}</p>
     </div>
   </div>
 </template>
@@ -22,16 +22,18 @@
 <script lang="ts">
 import { useGetLocation } from "@/composables/useGetLocation";
 import { computed, defineComponent } from "vue";
-import { timezone } from "./helpers";
+import { getUTCTimeDifference } from "./helpers";
 
 export default defineComponent({
   setup() {
-    const { updateLocationData, locationData } = useGetLocation();
-    updateLocationData("");
+    const { updateLocationInfo, locationInfo } = useGetLocation();
+    updateLocationInfo();
 
     return {
-      locationData,
-      timezone: computed(() => timezone(locationData.value?.offset)),
+      locationInfo,
+      getUTCTimeDifference: computed(() =>
+        getUTCTimeDifference(locationInfo.value?.offset)
+      ),
     };
   },
 });
