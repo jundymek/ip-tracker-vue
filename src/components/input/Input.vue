@@ -96,6 +96,10 @@ export default defineComponent({
     padding: 0 10px;
     font-weight: 500;
     color: $darkGray;
+    @media (max-width: $desktop) {
+      padding: 0 4px;
+      font-size: 14px;
+    }
   }
 }
 
