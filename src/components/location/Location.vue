@@ -25,7 +25,7 @@ import { computed, defineComponent, onMounted } from "vue";
 
 export default defineComponent({
   setup() {
-    const { getLocationData, locationData } = useGetLocation();
+    const { updateLocationData, locationData } = useGetLocation();
 
     const timezone = computed(() => {
       if (locationData.value) {
@@ -38,7 +38,7 @@ export default defineComponent({
     });
 
     onMounted(async () => {
-      await getLocationData("");
+      await updateLocationData("");
     });
 
     return { locationData, timezone };

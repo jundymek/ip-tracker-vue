@@ -1,5 +1,5 @@
 import { LocationObject } from "@/types/Location";
-import { Ref, ref } from "vue";
+import { computed, Ref, ref } from "vue";
 
 const locationData = ref<LocationObject | null>(null);
 const error = ref("");
@@ -7,11 +7,11 @@ const isLoading = ref(false);
 
 export const useGetLocation = (): {
   error: Ref<string>;
-  getLocationData: (value: string) => Promise<void>;
+  updateLocationData: (value: string) => Promise<void>;
   locationData: Ref<LocationObject | null>;
   isLoading: Ref<boolean>;
 } => {
-  const getLocationData = async (value: string) => {
+  const updateLocationData = async (value: string) => {
     isLoading.value = true;
     try {
       const response = await fetch(
@@ -32,5 +32,10 @@ export const useGetLocation = (): {
     }
   };
 
-  return { error, getLocationData, locationData, isLoading };
+  return {
+    error,
+    updateLocationData,
+    locationData,
+    isLoading: computed(() => isLoading.value),
+  };
 };

@@ -28,9 +28,9 @@ import { useGetLocation } from "@/composables/useGetLocation";
 export default defineComponent({
   setup() {
     const input = ref("");
-    const { getLocationData, error } = useGetLocation();
+    const { updateLocationData, error } = useGetLocation();
     const handleSubmit = async () => {
-      await getLocationData(input.value);
+      await updateLocationData(input.value);
     };
     return { input, handleSubmit, error };
   },
