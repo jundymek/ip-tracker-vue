@@ -20,7 +20,6 @@ export const useGetLocation = (): {
       const data = await response.json();
       if (data.status !== "fail") {
         locationData.value = data;
-        console.log(data);
       } else {
         throw new Error(data.message);
       }

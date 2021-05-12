@@ -18,7 +18,7 @@
           draggable
           @moveend="log('moveend')"
         >
-          <l-tooltip> lol </l-tooltip>
+          <l-icon :icon-url="MarkerIcon" :icon-size="MarkerIconSize" />
         </l-marker>
       </l-map>
     </div>
@@ -31,19 +31,21 @@ import {
   LMap,
   LTileLayer,
   LMarker,
-  LTooltip,
+  LIcon,
   LControlZoom,
 } from "@vue-leaflet/vue-leaflet";
 import Location from "@/components/location/Location.vue";
 import "leaflet/dist/leaflet.css";
 import { useGetLocation } from "@/composables/useGetLocation";
+import MarkerIcon from "@/assets/icon-location.svg";
 
 export default defineComponent({
-  components: { LMap, LTileLayer, LMarker, LTooltip, Location, LControlZoom },
+  components: { LMap, LTileLayer, LMarker, LIcon, Location, LControlZoom },
   setup() {
     const { locationData } = useGetLocation();
     const zoom = 12;
-    return { locationData, zoom };
+    const MarkerIconSize = [46, 56];
+    return { locationData, zoom, MarkerIcon, MarkerIconSize };
   },
 });
 </script>

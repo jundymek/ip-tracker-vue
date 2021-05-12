@@ -89,6 +89,7 @@ export default defineComponent({
   color: $veryDarkGray;
   font-size: 18px;
   flex: 4;
+  cursor: pointer;
 
   &::placeholder {
     font-size: 18px;
