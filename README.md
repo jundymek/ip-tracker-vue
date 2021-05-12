@@ -1,24 +1,60 @@
-# ip-address-tracker-vue
+# Frontend Mentor - IP address tracker solution
 
-## Project setup
-```
-yarn install
-```
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Table of contents
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-### Lints and fixes files
-```
-yarn lint
-```
+## Overview
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
+
+### Screenshots
+
+![Desktop design](./github/desktop.png)
+![Mobile design](./github/mobile.png)
+
+Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+
+Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+
+Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+
+**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+
+### Links
+
+- Solution URL: [https://github.com/jundymek/ip-tracker-vue](https://github.com/jundymek/ip-tracker-vue)
+- Live Site URL: [https://jundymek.github.io/ip-tracker-vue/](https://jundymek.github.io/ip-tracker-vue/) - you need to enable 'allow insecure content' from this domain to properly fetch data. Project uses free api without SSL... 
+
+## My process
+
+### Built with  🚀
+
+- Semantic HTML5 markup
+- SCSS
+- Flexbox
+- CSS Grid
+- [Vue.js](https://v3.vuejs.org/) - JS library
+- [LeafletJS](https://leafletjs.com/) for maps
+- [Ip-api.com](http://ip-api.com/) for data
+
+## Author
+
+- Website - [jundymek](https://jundymek.com)
+- Frontend Mentor - [@jundymek](https://www.frontendmentor.io/profile/jundymek)
+- Github - [jundymek](https://github.com/jundymek)
