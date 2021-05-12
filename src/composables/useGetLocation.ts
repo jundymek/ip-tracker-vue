@@ -12,6 +12,7 @@ export const useGetLocation = (): {
   isLoading: Ref<boolean>;
 } => {
   const updateLocationData = async (value: string) => {
+    if (isLoading.value) return;
     isLoading.value = true;
     try {
       const response = await fetch(

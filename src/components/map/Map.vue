@@ -3,8 +3,7 @@
     <Location />
     <div v-if="locationData !== null" class="map">
       <l-map
-        v-model="zoom"
-        v-model:zoom="zoom"
+        :zoom="zoom"
         :center="[locationData.lat, locationData.lon]"
         :options="{ zoomControl: false }"
       >

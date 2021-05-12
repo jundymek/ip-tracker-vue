@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <header class="wrapper">
     <h1 class="title">IP adress tracker</h1>
     <form action="" class="form" @submit.prevent="handleSubmit">
       <div class="input-wrapper">
@@ -18,7 +18,7 @@
       </div>
       <p v-if="error" class="error">*{{ error }}</p>
     </form>
-  </div>
+  </header>
 </template>
 
 <script lang="ts">

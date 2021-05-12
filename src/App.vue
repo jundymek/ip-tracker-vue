@@ -1,19 +1,19 @@
 <template>
   <div class="box-wrapper">
-    <Input />
+    <PageHeader />
     <Map />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Input from "@/components/input/Input.vue";
+import PageHeader from "@/components/pageHeader/PageHeader.vue";
 
 import Map from "./components/map/Map.vue";
 
 export default defineComponent({
   name: "App",
-  components: { Input, Map },
+  components: { PageHeader, Map },
 });
 </script>
 

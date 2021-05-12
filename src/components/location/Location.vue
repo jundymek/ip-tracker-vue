@@ -21,27 +21,18 @@
 
 <script lang="ts">
 import { useGetLocation } from "@/composables/useGetLocation";
-import { computed, defineComponent, onMounted } from "vue";
+import { computed, defineComponent } from "vue";
+import { timezone } from "./helpers";
 
 export default defineComponent({
   setup() {
     const { updateLocationData, locationData } = useGetLocation();
+    updateLocationData("");
 
-    const timezone = computed(() => {
-      if (locationData.value) {
-        const start = locationData.value.offset > 0 ? "+" : "";
-        return `${start}${(locationData.value.offset / 3600)
-          .toString()
-          .padStart(2, "0")}:00`;
-      }
-      return null;
-    });
-
-    onMounted(async () => {
-      await updateLocationData("");
-    });
-
-    return { locationData, timezone };
+    return {
+      locationData,
+      timezone: computed(() => timezone(locationData.value?.offset)),
+    };
   },
 });
 </script>
