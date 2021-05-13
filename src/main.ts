@@ -1,5 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import store from "./store";
+import { store, key } from "@/store/store";
 
-createApp(App).use(store).mount("#app");
+const app = createApp(App);
+
+// pass the injection key
+app.use(store, key);
+
+app.mount("#app");
