@@ -9,7 +9,7 @@
       <p class="value">{{ locationInfo.country }}</p>
     </div>
     <div class="box">
-      <h2 class="title">getUTCTimeDifference</h2>
+      <h2 class="title">Timezone</h2>
       <p class="value">UTC {{ getUTCTimeDifference }}</p>
     </div>
     <div class="box">
